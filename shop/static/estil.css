@@ -1,0 +1,109 @@
+/* Estilo básico para la página de comercio electrónico */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.product-image img {
+    max-width: 300%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.product-info {
+    flex: 1;
+    padding: 200px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-info h2 {
+    font-size: 50px;
+    margin: 0 0 10px;
+}
+
+.product-info .description {
+    font-size: 16px;
+    margin: 0 0 20px;
+}
+
+.product-price h3 {
+    font-size: 28px;
+    margin: 0;
+    color: #ff6600; /* Color de precio personalizado */
+}
+
+.product-info .unit {
+    font-size: 18px;
+    color: #777;
+}
+
+.availability {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.color-select {
+    margin: 10px 0;
+}
+
+.color-select p {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.color-select .color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Agrega estilos adicionales según tus preferencias */
+
+.image-customization {
+    margin: 20px 0;
+}
+
+.image-customization input[type="file"] {
+    display: block;
+    margin: 10px 0;
+}
+
+.text-input input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size:50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.preview-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff; /* Color del botón de agregar al carrito */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para otros elementos, como las fuentes, botones y encabezado, según tus necesidades */
+
+/* Recuerda enlazar este archivo CSS en tu plantilla HTML */

@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% for category in categories %}
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="text-primary">{{ category.description }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in products %}
+                {% if product.category_product == category %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-cell mb-4">
+                            <h3>{{ product.name }}</h3>
+                            <img src="{{ product.imgSmall.url }}" class="img-fluid">
+                            <p>Price: {{ product.price }}</p>
+                            <!--<a href="{% url 'AddShoppingCar' product.id %}" class="btn btn-primary">Add to cart</a>-->
+                            <a href="{% url 'ViewProduct' product.id %}" type="button" class="btn btn-primary">personalizar</a>
+                            <br> 
+                        </div>
+                    </div>
+                {% endif %}
+                
+            {% endfor %}
+        </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}

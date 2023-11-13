@@ -1,0 +1,51 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+<br>
+
+<div class="mb-3 descripcion text-center">
+    <h4>{{titulo}}</h4>
+</div>
+
+        {% for c in categorias %}
+        
+                      
+    <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+        <div class="col-12 col-md-4 offset-md-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">{{c.description}}</h4>
+                </div>
+                
+            <img src="{{ producto.imgBig.url }}" alt="X"> 
+            <img src="/media/iconos/camiseta_amarilla.jpg" alt="">
+                <div class="card-body">
+                    <h1 class="Card subtitle pricing-card-title">${{producto.price}}</h1>
+                    <h4 class="text-muted fw-light">/{{producto.unit}}</h4>
+                    <br>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        
+                        <p>{{producto.description_product}}</p>
+                        <p>{{producto.stock}} en existencia</p>
+                        <a href="{% url 'ViewProductCategory' c.id %}" type="button" class="btn btn-info">revisar Productos</a></td>
+            
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+        {% endfor %}
+        
+        </tbody>
+    </table>
+</div>
+{% endblock %}    
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+<br>
+    <div class="mb-3 descripcion text-center">
+        <h2>{{titulo}}</h2>
+    </div>
+    
+    <div class="col-12 col-md-4 offset-md-4">
+        <h2>Categorias</h2>
+        <select name="categorias" id="categorias" class="form-select" onchange="filtrarCategoria()">
+            <option value="0">Todos</option>
+            {% for categ in Categoria %}
+            <option value="{{ categ.id }}">{{ categ.description }}</option>
+            {% endfor %}
+        </select>
+        
+        <hr>
+        <h2>Productos</h2>
+        <select name="productos" id="productos" class="form-select" onchange="filtrarCategoria()">
+            <option value="0">Todos</option>
+            {% for prod in Productos %}
+            <option value="{{ prod.id }}" data-categ="{{ prod.category_product }}">{{ prod.name }}</option>
+            {% endfor %}
+        </select>
+        <button id="redirect-btn" class="btn btn-primary mx-auto my-3" onclick="redirectProduct()">Ir al producto</button>
+    </div>
+    
+{% endblock %}

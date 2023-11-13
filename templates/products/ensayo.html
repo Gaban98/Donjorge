@@ -1,0 +1,74 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+    <div class="container">
+
+        <h2>{{titulo}}</h2>
+        <br>
+        <br>
+      
+      
+           
+             <!--   <h4 class="my-0 fw-normal">{{producto.name}}</h4>  -->
+                
+           <!--     <img src="{{ producto.imgBig.url }}" alt="X">  -->
+           <img src="/media/productos/camiseta_naranja.jpg" id="imgchange" alt="">  
+
+                <h3 class="text1">escoge el color a tu preferencia:</h3>
+                <div class="color-select">
+                    <div id="red"></div>
+                    <div id="blue"></div>
+                    <div id="yellow"></div>
+                    <div id="lightgreen"></div>
+                    <div id="gray"></div>
+                    <div id="green"></div>
+                    <div id="orange"></div>
+                </div>
+                <div class="card-body">
+                    <h1 class="Card subtitle pricing-card-title">${{producto.price}}</h1>
+                    <h4 class="text-muted fw-light">/{{producto.unit}}</h4>
+                    <br>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <p>{{producto.description_product}}</p>
+                        <p>{{producto.stock}} en existencia</p>
+                    </ul>
+                    <a href="{% url 'AddShoppingCar' producto.id %}" type="button" class="w-100 btn btn-lg btn-outline-primary">Agregar al carrito</a>
+                </div>
+                <br>
+                    <br>
+                    <br>
+                    <br>
+
+                <div id="image-container">
+                    <img id="imagenMostrada" src="#" alt="" id="overlay" class="overlay-image" style="height: 100px;">
+                    <br> 
+                 <input type="text" style="height: 30px; width: 100px; font-size: 20px; box-shadow:inset 5px 5px 5px;" placeholder="ingrese texto" id="texto"> 
+                 
+                </div>
+                 <select name="" id="">
+                    <option value="1">selecciona tipo de letra</option>
+                    <option value="2">arial</option>
+                    <option value="3">times new roman</option>
+                    <option value="4">cooper black</option>
+                    <option value="5">algerian</option>
+                    <option value="6">gothic</option>
+                    <option value="7">broadway</option>
+                 </select>
+            
+            
+               <div class="image-container">
+                    <input type="file" id="imagenInput"> 
+                    
+                    <br>
+                    <br>
+                    <p>infinito wear</p> 
+                      
+                </div>  
+    </div>
+          
+            
+        </body>
+       
+{% endblock %}

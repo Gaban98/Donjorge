@@ -1,0 +1,181 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Original video: https://www.youtube.com/watch?v=i7bW41JTL8U -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisetas - Infinito Wear</title>
+    <link rel="stylesheet" type="text/css" href="/shop/static/stilo_diseño.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="container">
+        <h3 class="text1">escoge el color a tu preferencia:</h3>
+        <div class="color-select">
+            <div id="red"></div>
+            <div id="blue"></div>
+            <div id="yellow"></div>
+            <div id="lightgreen"></div>
+            <div id="gray"></div>
+            <div id="green"></div>
+            <div id="orange"></div>
+        </div>
+        <div class="images">
+            <img src="/media/productos/camiseta_gris.jpg" id="imgchange" alt="">
+        </div>
+
+    <div id="image-container">
+        <img id="imagenMostrada" src="#" alt="" id="overlay" class="overlay-image" style="height: 100px;">
+        <br> 
+     <input type="text" style="height: 30px; width: 100px; font-size: 20px; box-shadow:inset 5px 5px 5px;" placeholder="ingrese texto" id="texto"> 
+     
+    </div>
+     <select name="" id="">
+        <option value="1">selecciona tipo de letra</option>
+        <option value="2">arial</option>
+        <option value="3">times new roman</option>
+        <option value="4">cooper black</option>
+        <option value="5">algerian</option>
+        <option value="6">gothic</option>
+        <option value="7">broadway</option>
+     </select>
+
+
+   <div class="image-container">
+        <input type="file" id="imagenInput"> 
+        
+        <br>
+        <br>
+        <p>infinito wear</p> 
+          
+    </div>  
+
+</div>
+</div>
+<a href="{% url 'Pay' %}" class="btn btn-info btn-carrito">Pagar</a>
+
+</div>
+    
+    
+    
+</body>
+</html>
+{% endblock %}
+
+
+esto e una vista : 
+
+
+import cv2
+import numpy as np
+
+# Cargar la imagen de la camisa blanca
+image = cv2.imread('camisa_blanca.png')
+
+# Definir el nuevo color (en formato BGR, en este caso, rojo)
+new_color = (0, 0, 255)
+
+# Crear una máscara para las áreas blancas
+lower_white = np.array([200, 200, 200])
+upper_white = np.array([255, 255, 255])
+mask = cv2.inRange(image, lower_white, upper_white)
+
+# Cambiar las áreas blancas al nuevo color
+result = image.copy()
+result[mask > 0] = new_color
+
+# Guardar la imagen resultante
+cv2.imwrite('camisa_roja.png', result)
+
+
+
+
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<h2>{{titulo}}</h2>
+    <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+        <div class="col-12 col-md-4 offset-md-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">{{producto.name}}</h4>
+                </div>
+                <img src="{{ producto.imgBig.url }}" alt="X">
+                <div class="card-body">
+                    <h1 class="Card subtitle pricing-card-title">${{producto.price}}</h1>
+                    <h4 class="text-muted fw-light">/{{producto.unit}}</h4>
+                    <br>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <p>{{producto.description_product}}</p>
+                        <p>{{producto.stock}} en existencia</p>
+                    </ul>
+                    <a href="{% url 'AddShoppingCar' producto.id %}" type="button" class="w-100 btn btn-lg btn-outline-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <body>
+        <body>
+            <div class="container">
+                <h3 class="text1">escoge el color a tu preferencia:</h3>
+                <div class="color-select">
+                    <div id="red"></div>
+                    <div id="blue"></div>
+                    <div id="yellow"></div>
+                    <div id="lightgreen"></div>
+                    <div id="gray"></div>
+                    <div id="green"></div>
+                    <div id="orange"></div>
+                </div>
+                <div class="images">
+                    <img src="/media/productos/camiseta_gris.jpg" id="imgchange" alt="">
+                </div>
+        
+            <div id="image-container">
+                <img id="imagenMostrada" src="#" alt="" id="overlay" class="overlay-image" style="height: 100px;">
+                <br> 
+             <input type="text" style="height: 30px; width: 100px; font-size: 20px; box-shadow:inset 5px 5px 5px;" placeholder="ingrese texto" id="texto"> 
+             
+            </div>
+             <select name="" id="">
+                <option value="1">selecciona tipo de letra</option>
+                <option value="2">arial</option>
+                <option value="3">times new roman</option>
+                <option value="4">cooper black</option>
+                <option value="5">algerian</option>
+                <option value="6">gothic</option>
+                <option value="7">broadway</option>
+             </select>
+        
+        
+           <div class="image-container">
+                <input type="file" id="imagenInput"> 
+                
+                <br>
+                <br>
+                <p>infinito wear</p> 
+                  
+            </div>  
+        
+        </div>
+        </div>
+    <!--   <a href="{% url 'Pay' %}" class="btn btn-info btn-carrito">Pagar</a>  --> 
+        
+        </div>
+            
+            
+            
+        </body>
+       
+{% endblock %}

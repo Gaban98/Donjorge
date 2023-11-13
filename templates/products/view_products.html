@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<br>
+
+<div class="mb-3 descripcion text-center">
+    <h2>{{titulo}}</h2>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <th></th>
+            <th>nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Existencia</th>
+            <th></th>
+        </thead>
+        <tbody>
+        {% for p in productos %}
+        {% comment %} el primero es una variable libre y el segundo proviene de la view {% endcomment %}
+            <tr>
+                <td><img src="{{p.imgSmall.url}}" alt="X"> </td>
+                <td>{{p.name}}</td>
+                <td>{{p.description_product}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.stock}}</td>
+                <td><a href="{% url 'ViewProduct' p.id %}" type="button" class="btn btn-primary">personalice</a></td>
+                
+                {% comment %} aca debemos crear en la view url 'un_producto' {% endcomment %}
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+</div>
+{% endblock %}
